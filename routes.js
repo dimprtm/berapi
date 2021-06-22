@@ -6,4 +6,5 @@ module.exports = function (app) {
     app.route('/').get(json.index);
     app.route('/news').get(json.getNews);
     app.route('/news/:id').get(json.getNewsId);
+    app.route('/news').post(json.insertNews);
 }

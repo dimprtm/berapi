@@ -29,3 +29,20 @@ exports.getNewsId = function (req, res) {
         }
     });
 };
+
+exports.insertNews = function (req, res) {
+    let source = req.body.source;
+    let title = req.body.title;
+    let description = req.body.description;
+    let url = req.body.url;
+    let urlToImage = req.body.urlToImage;
+
+    connection.query('INSERT INTO news (source, title, description, url, urlToImage) VALUES(?,?,?,?,?)',
+        [source, title, description, url, urlToImage], function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok('Data berhasil ditambahkan', res);
+            }
+        });
+};
