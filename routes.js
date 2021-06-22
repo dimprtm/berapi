@@ -7,4 +7,5 @@ module.exports = function (app) {
     app.route('/news').get(json.getNews);
     app.route('/news/:id').get(json.getNewsId);
     app.route('/news').post(json.insertNews);
+    app.route('/news').put(json.updateNews);
 }

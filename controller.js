@@ -30,6 +30,7 @@ exports.getNewsId = function (req, res) {
     });
 };
 
+// tambah data
 exports.insertNews = function (req, res) {
     let source = req.body.source;
     let title = req.body.title;
@@ -43,6 +44,25 @@ exports.insertNews = function (req, res) {
                 console.log(error);
             } else {
                 response.ok('Data berhasil ditambahkan', res);
+            }
+        });
+};
+
+// ubah data
+exports.updateNews = function (req, res) {
+    let id = req.body.id;
+    let source = req.body.source;
+    let title = req.body.title;
+    let description = req.body.description;
+    let url = req.body.url;
+    let urlToImage = req.body.urlToImage;
+
+    connection.query('UPDATE news SET source=?, title=?, description=?, url=?, urlToImage=? WHERE id=?',
+        [source, title, description, url, urlToImage, id], function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok('Data ' + id + ' berhasil diubah', res);
             }
         });
 };
