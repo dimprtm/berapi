@@ -1,7 +1,7 @@
 'use strict';
 
 exports.ok = function (values, res) {
-    const data = {
+    let data = {
         'status': 200,
         'values': values
     };
