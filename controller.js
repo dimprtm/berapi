@@ -30,52 +30,52 @@ exports.getNewsId = function (req, res) {
     });
 };
 
-// tambah data
-exports.insertNews = function (req, res) {
-    let source = req.body.source;
-    let title = req.body.title;
-    let description = req.body.description;
-    let url = req.body.url;
-    let urlToImage = req.body.urlToImage;
+// // tambah data
+// exports.insertNews = function (req, res) {
+//     let source = req.body.source;
+//     let title = req.body.title;
+//     let description = req.body.description;
+//     let url = req.body.url;
+//     let urlToImage = req.body.urlToImage;
 
-    connection.query('INSERT INTO news (source, title, description, url, urlToImage) VALUES(?,?,?,?,?)',
-        [source, title, description, url, urlToImage], function (error, rows, fields) {
-            if (error) {
-                console.log(error);
-            } else {
-                response.ok('Data berhasil ditambahkan', res);
-            }
-        });
-};
+//     connection.query('INSERT INTO news (source, title, description, url, urlToImage) VALUES(?,?,?,?,?)',
+//         [source, title, description, url, urlToImage], function (error, rows, fields) {
+//             if (error) {
+//                 console.log(error);
+//             } else {
+//                 response.ok('Data berhasil ditambahkan', res);
+//             }
+//         });
+// };
 
-// ubah data
-exports.updateNews = function (req, res) {
-    let id = req.body.id;
-    let source = req.body.source;
-    let title = req.body.title;
-    let description = req.body.description;
-    let url = req.body.url;
-    let urlToImage = req.body.urlToImage;
+// // ubah data
+// exports.updateNews = function (req, res) {
+//     let id = req.body.id;
+//     let source = req.body.source;
+//     let title = req.body.title;
+//     let description = req.body.description;
+//     let url = req.body.url;
+//     let urlToImage = req.body.urlToImage;
 
-    connection.query('UPDATE news SET source=?, title=?, description=?, url=?, urlToImage=? WHERE id=?',
-        [source, title, description, url, urlToImage, id], function (error, rows, fields) {
-            if (error) {
-                console.log(error);
-            } else {
-                response.ok('Data ' + id + ' berhasil diubah', res);
-            }
-        });
-};
+//     connection.query('UPDATE news SET source=?, title=?, description=?, url=?, urlToImage=? WHERE id=?',
+//         [source, title, description, url, urlToImage, id], function (error, rows, fields) {
+//             if (error) {
+//                 console.log(error);
+//             } else {
+//                 response.ok('Data ' + id + ' berhasil diubah', res);
+//             }
+//         });
+// };
 
-// menghapus data berdasarkan id
-exports.deleteNews = function (req, res) {
-    let id = req.body.id;
+// // menghapus data berdasarkan id
+// exports.deleteNews = function (req, res) {
+//     let id = req.body.id;
 
-    connection.query('DELETE FROM news WHERE id=?', [id], function (error, rows, fields) {
-        if (error) {
-            console.log(error);
-        } else {
-            response.ok('Data ' + id + ' berhasil dihapus', res);
-        }
-    });
-};
+//     connection.query('DELETE FROM news WHERE id=?', [id], function (error, rows, fields) {
+//         if (error) {
+//             console.log(error);
+//         } else {
+//             response.ok('Data ' + id + ' berhasil dihapus', res);
+//         }
+//     });
+// };
