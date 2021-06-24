@@ -1,2 +1,2 @@
 # newsapi
-newsapi Node.JS MYSQL
+REST API menggunakan Node.JS & MYSQL
