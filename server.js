@@ -2,11 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors')
 
 // parse application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 // panggil routes
 const routes = require('./routes');
