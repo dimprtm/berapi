@@ -1,5 +1,5 @@
 {
-  "name": "newsapi",
+  "name": "berapi",
   "version": "1.0.0",
   "description": "aplikasi rest api Node.JS MYSQL",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dimprtm/newsapi.git"
+    "url": "git+https://github.com/dimprtm/berapi.git"
   },
   "keywords": [
     "rest",
@@ -18,9 +18,9 @@
   "author": "dimas pratama",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dimprtm/newsapi/issues"
+    "url": "https://github.com/dimprtm/berapi/issues"
   },
-  "homepage": "https://github.com/dimprtm/newsapi#readme",
+  "homepage": "https://github.com/dimprtm/berapi#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
