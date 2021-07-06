@@ -3,7 +3,7 @@ const config = require('../config/secret');
 
 function verifikasi() {
     return function (req, res, next) {
-        let role = req.body.role;
+        // let role = req.body.role;
         // cek authorization header
         let tokenWithBearer = req.headers.authorization;
         if (tokenWithBearer) {
@@ -13,12 +13,8 @@ function verifikasi() {
                 if (err) {
                     return res.status(401).send({ auth: false, message: 'Token tidak terdaftar!' });
                 } else {
-                    if (role == 2) {
-                        req.auth = decoded;
-                        next();
-                    } else {
-                        return res.status(401).send({ auth: false, message: 'Gagal mengotorisai!' });
-                    }
+                    req.auth = decoded;
+                    next();
                 }
             });
         } else {

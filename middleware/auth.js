@@ -46,12 +46,12 @@ exports.register = function (req, res) {
 // controller untuk login
 exports.login = function (req, res) {
     let post = {
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     };
 
     let query = "SELECT * FROM ?? WHERE ??=? AND ??=?";
-    let table = ["user", "password", md5(post.password), "username", post.username];
+    let table = ["user", "password", md5(post.password), "email", post.email];
     query = mysql.format(query, table);
 
     connection.query(query, function (error, rows) {
@@ -60,9 +60,13 @@ exports.login = function (req, res) {
         } else {
             if (rows.length == 1) {
                 let token = jwt.sign({ rows }, config.secret, {
-                    expiresIn: 1440
+                    expiresIn: 86400
                 });
                 id_user = rows[0].id;
+                username = rows[0].username;
+                role = rows[0].role;
+
+                let expired = 86400;
 
                 let data = {
                     id_user: id_user,
@@ -82,7 +86,10 @@ exports.login = function (req, res) {
                             success: true,
                             message: "Token JWT dibuat",
                             token: token,
-                            currUser: data.id_user
+                            expires: expired,
+                            currUser: data.id_user,
+                            user: username,
+                            role: role
                         });
                     }
                 });
@@ -96,7 +103,7 @@ exports.login = function (req, res) {
     });
 };
 
-// menampilkan respon data
+// menampilkan respon semua data
 exports.getNewsWithAuth = function (req, res) {
     connection.query('SELECT * FROM news', function (error, rows, fields) {
         if (error) {
