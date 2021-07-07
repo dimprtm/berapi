@@ -167,7 +167,7 @@ exports.updateNews = function (req, res) {
 
 // menghapus data berdasarkan id
 exports.deleteNews = function (req, res) {
-    let id = req.body.id;
+    let id = req.params.id;
 
     connection.query('DELETE FROM news WHERE id=?', [id], function (error, rows, fields) {
         if (error) {
