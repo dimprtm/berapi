@@ -3,9 +3,9 @@
 const response = require('./res');
 const connection = require('./koneksi');
 
-exports.index = function (req, res) {
-    response.ok("/Index", res);
-};
+// exports.index = function (req, res) {
+//     response.ok("/Index", res);
+// };
 
 // menampilkan semua data dari database
 exports.getNews = function (req, res) {
