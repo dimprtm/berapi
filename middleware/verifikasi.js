@@ -3,7 +3,6 @@ const config = require('../config/secret');
 
 function verifikasi() {
     return function (req, res, next) {
-        // let role = req.body.role;
         // cek authorization header
         let tokenWithBearer = req.headers.authorization;
         if (tokenWithBearer) {
